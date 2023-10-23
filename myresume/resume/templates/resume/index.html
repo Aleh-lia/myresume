@@ -1,0 +1,22 @@
+{% extends 'resume/base.html' %}
+{% block content %}
+    <div class="section">
+        <a href="{% url 'index' %}"><h2>Главная</h2></a>
+    </div>
+
+    <div class="resume">
+        {% for a in authors %}
+            <h1>{{ a.lastname }} {{ a.firstname }}</h1>
+            <p>Контактная информация:<br>
+                email: {{a.email}}<br>
+                phone: {{a.phone}}<br>
+            </p>
+        {% endfor %}
+    </div>
+    <div class="section">
+        <a href="{% url 'education' %}"><h2>Образование</h2></a>
+        <a href="{% url 'job' %}"><h2>Опыт работы</h2></a>
+        <a href="{% url 'skills' %}"><h2>Навыки</h2></a>
+    </div>
+
+{% endblock content %}
